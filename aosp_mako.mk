@@ -3,18 +3,21 @@ TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 768
 TARGET_BOOTANIMATION_HALF_RES := true
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
+# Inherit some common PEX stuff.
+$(call inherit-product, vendor/aosp/config/common_mini_phone.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+GAPPS_VARIANT := nano
+TARGET_GAPPS_ARCH := arm
+CUSTOM_BUILD_TYPE := OFFICIAL
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/lge/mako/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := mako
-PRODUCT_NAME := lineage_mako
+PRODUCT_NAME := aosp_mako
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
